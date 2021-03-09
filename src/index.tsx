@@ -1,16 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import App from './App'
+
 const element = document.querySelector('#react-root');
 
 if (!element) throw Error('Failed to find element');
-
-function App() {
-	return (
-		<div>
-			foobar
-		</div>
-	)
-}
 
 ReactDOM.render(<App />, element);
