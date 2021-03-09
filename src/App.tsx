@@ -1,9 +1,10 @@
 import React from 'react';
+import Tailwindcss from './ui/Tailwindcss';
 
 export default function App() {
 	return (
-		<>
-			<form className="bg-gray-400">
+		<Tailwindcss>
+			<form className="flex flex-col">
 				<label>
 					Card Number
 					<input type="text" id="card-number" name="card-number" />
@@ -26,7 +27,7 @@ export default function App() {
 
 				<button>Submit</button>
 			</form>
-		</>
+		</Tailwindcss>
 	)
 }
 
