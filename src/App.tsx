@@ -3,7 +3,7 @@ import React from 'react';
 export default function App() {
 	return (
 		<>
-			<form style={{ display: 'flex', flexDirection: 'column', width: '30vw'}}>
+			<form className="bg-gray-400">
 				<label>
 					Card Number
 					<input type="text" id="card-number" name="card-number" />
