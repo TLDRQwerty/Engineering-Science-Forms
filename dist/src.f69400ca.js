@@ -29901,10 +29901,13 @@ function TextInput(_a) {
     }
   };
 
+  var id = label.toLowerCase().split(' ').join('-');
   return react_1.default.createElement("label", null, label, react_1.default.createElement("input", {
     type: 'text',
     onChange: handleChange,
-    value: value
+    value: value,
+    name: id,
+    id: id
   }), errors.length > 0 && react_1.default.createElement("label", null, errors.join(', ')));
 }
 
@@ -30124,7 +30127,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43385" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33673" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
