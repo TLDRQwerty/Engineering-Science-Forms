@@ -20,6 +20,12 @@ export default function TextInput({ splitChar, splitIndex, maxLength, label, num
 		const newValue = e.currentTarget.value;
 		const newChar = newValue[newValue.length - 1];
 
+		if (newValue.length < value.length) {
+			setValue(newValue)
+			return;
+		}
+
+
 		if (numbersOnly && !(/^[0-9]*$/.test(newChar))) {
 			const errorString = 'Must be a number'
 			pushNewError(errorString);
@@ -36,8 +42,8 @@ export default function TextInput({ splitChar, splitIndex, maxLength, label, num
 
 		if (splitChar && splitIndex) {
 			const s = newValue.split(splitChar);
-			const lastElement = s[s.length - 1];
-			if (lastElement.length % splitIndex === 0 && lastElement.length !== 0) {
+			const lastElements = s[s.length - 1];
+			if (lastElements.length % splitIndex === 0 && lastElements.length !== 0 && newValue.length !== maxLength) {
 				setValue(newValue + splitChar);
 			} else {
 				setValue(newValue);
@@ -52,7 +58,7 @@ export default function TextInput({ splitChar, splitIndex, maxLength, label, num
 		<label>
 			{label}
 			<input type='text' onChange={handleChange} value={value} />
-			{errors.length > 0 && <label>{errors}</label>}
+			{errors.length > 0 && <label>{errors.join(', ')}</label>}
 		</label>
 	)
 }
