@@ -38,7 +38,7 @@ export default function TextInput({ splitChar, splitIndex, maxLength, label, num
 			return;
 		} 
 
-		setErrors([])
+		setErrors([]);
 
 		if (splitChar && splitIndex) {
 			const s = newValue.split(splitChar);
@@ -54,10 +54,12 @@ export default function TextInput({ splitChar, splitIndex, maxLength, label, num
 
 	}
 
+	const id = label.toLowerCase().split(' ').join('-');
+
 	return (
 		<label>
 			{label}
-			<input type='text' onChange={handleChange} value={value} />
+			<input type='text' onChange={handleChange} value={value} name={id} id={id} />
 			{errors.length > 0 && <label>{errors.join(', ')}</label>}
 		</label>
 	)
