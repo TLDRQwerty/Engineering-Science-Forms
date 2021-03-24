@@ -1,27 +1,42 @@
 import React from 'react';
-import TextInput from './ui/TextInput';
-import Tailwindcss from './ui/Tailwindcss';
+import useStorage from './hooks/useStorage'
+import { One } from './Questions'
+import Button from './ui/Button';
 
 export default function() {
+	const [current, setCurrent] = useStorage('current-question', '1');
+
+	const getQuestion = () => {
+		switch(current && parseInt(current)) {
+			case 1:
+				return (
+					<One />
+				)
+			default:
+				return (
+					<div>foobar</div>
+				)
+		}
+	}
+
+	const handleNext = () => {
+		setCurrent((parseInt(current) + 1).toString());
+	}
+
+	const handleBack = () => {
+		setCurrent((parseInt(current) - 1).toString());
+	}
+
 	return (
 		<div>
-			<Tailwindcss>
-				<form className="flex flex-col">
-					<TextInput splitChar="-" splitIndex={4} maxLength={19} label="Card Number" numbersOnly />
-
-					<label>
-						Cardholder Name
-						<input type="text" id="cardholder-name" name="cardholder-name" />
-					</label>
-
-					<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} />
-
-					<TextInput label="CVC" maxLength={3} numbersOnly />
-
-					<button>Submit</button>
-				</form>
-			</Tailwindcss>
-
+			{getQuestion()}
+			<div>
+				<Button label="Back" onClick={handleBack}/>
+				<span>{current}/TBD</span>
+				<Button label="Next" onClick={handleNext}/>
+			</div>
 		</div>
 	)
+
 }
+
