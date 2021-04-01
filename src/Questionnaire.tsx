@@ -1,6 +1,6 @@
 import React from 'react';
 import useStorage from './hooks/useStorage'
-import { One } from './Questions'
+import { One, Two } from './Questions'
 import Button from './ui/Button';
 
 export default function() {
@@ -9,9 +9,9 @@ export default function() {
 	const getQuestion = () => {
 		switch(current && parseInt(current)) {
 			case 1:
-				return (
-					<One />
-				)
+				return <One />
+			case 2:
+				return <Two />
 			default:
 				return (
 					<div>foobar</div>
