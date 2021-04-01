@@ -4,7 +4,8 @@
 	"main": "./src/index",
 	"scripts": {
 		"dev": "NODE_ENV=development webpack serve",
-		"build": "NODE_ENV=production webpack --mode=production"
+		"build": "NODE_ENV=production webpack --mode=production",
+		"upload": "yarn build && git subtree push --prefix dist origin gh-pages"
 	},
 	"resolutions": {
 		"@babel/preset-env": "7.13.8"
