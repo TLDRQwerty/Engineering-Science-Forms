@@ -1,14 +1,13 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-const IS_PRODUCTION = (mode) => mode === 'PRODUCTION';
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 const IS_DEVELOPMENT = !IS_PRODUCTION;
 
 module.exports = (env, options) => {
 	return {
 		entry: './src/index.tsx',
-		mode: 'production',
-		watch: IS_DEVELOPMENT,
+		mode: process.env.NODE_ENV,
 		module: {
 			rules: [
 				{

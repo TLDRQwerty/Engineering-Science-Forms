@@ -1,7 +1,10 @@
 import React from 'react';
+import Introduction from './introduction';
 import useStorage from './hooks/useStorage'
 import { One, Two } from './Questions'
 import Button from './ui/Button';
+
+import css from './Questionnaire.module.css';
 
 export default function() {
 	const [current, setCurrent] = useStorage('current-question', '1');
@@ -28,7 +31,8 @@ export default function() {
 	}
 
 	return (
-		<div>
+		<div className={css.wrapper}>
+			<Introduction />
 			{getQuestion()}
 			<div>
 				<Button label="Back" onClick={handleBack}/>
