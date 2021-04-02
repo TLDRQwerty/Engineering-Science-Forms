@@ -1,13 +1,12 @@
-import React from 'react';
-import Questionnaire from './Questionnaire';
+import React from "react";
+import Questionnaire from "./Questionnaire";
 
-import css from './App.module.css'
+import css from "./App.module.css";
 
-export default function App() {
+export default function App(): JSX.Element {
 	return (
 		<div className={css.wrapper}>
 			<Questionnaire />
 		</div>
-	)
+	);
 }
-

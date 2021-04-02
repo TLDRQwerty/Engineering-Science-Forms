@@ -1,7 +1,7 @@
-import React from 'react';
-import TextInput from './ui/TextInput';
+import React from "react";
+import TextInput from "./ui/TextInput";
 
-export function One() {
+export function One(): JSX.Element {
 	return (
 		<div>
 			<form className="flex flex-col">
@@ -19,10 +19,10 @@ export function One() {
 				<button>Submit</button>
 			</form>
 		</div>
-	)
+	);
 }
 
-export function Two() {
+export function Two(): JSX.Element {
 	return (
 		<div>
 			<form>
@@ -40,5 +40,5 @@ export function Two() {
 				<button>Submit</button>
 			</form>
 		</div>
-	)
+	);
 }
