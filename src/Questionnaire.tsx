@@ -4,8 +4,6 @@ import useStorage from "./hooks/useStorage";
 import { One, Two } from "./Questions";
 import Button from "./ui/Button";
 
-import css from "./Questionnaire.module.css";
-
 export default function Questionnaire(): JSX.Element {
 	const [current, setCurrent] = useStorage("current-question", "1");
 
@@ -29,10 +27,12 @@ export default function Questionnaire(): JSX.Element {
 	};
 
 	return (
-		<div className={css.wrapper}>
-			<Introduction />
-			{getQuestion()}
-			<div>
+		<div className="h-full grid grid-flow-row content-between justify-items-center mx-auto">
+			<div className="rounded border border-black bg-white px-14 py-6">
+				<Introduction />
+			</div>
+			<div className="rounded border border-black bg-white px-14 py-10">{getQuestion()}</div>
+			<div className="rounded border border-black bg-white px-10 py-6">
 				<Button label="Back" onClick={handleBack} />
 				<span>{current}/TBD</span>
 				<Button label="Next" onClick={handleNext} />

@@ -14,6 +14,8 @@
 	"author": "Charlie Carolan <charliecarolan1999@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
+		"@tailwindcss/typography": "^0.4.0",
+		"clsx": "^1.1.1",
 		"components": "^0.1.0",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
