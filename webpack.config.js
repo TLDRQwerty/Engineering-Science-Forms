@@ -1,5 +1,6 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const IS_PRODUCTION = process.env.NODE_ENV === "production";
 const IS_DEVELOPMENT = !IS_PRODUCTION;
@@ -18,16 +19,8 @@ module.exports = (env, options) => {
 				{
 					test: /\.css$/i,
 					use: [
-						"style-loader",
-						{
-							loader: "css-loader",
-							options: {
-								modules: {
-									localIdentName: IS_DEVELOPMENT ? "[path][name]__[local]" : "[hash:base64]",
-								},
-								sourceMap: IS_DEVELOPMENT,
-							},
-						},
+						MiniCssExtractPlugin.loader,
+						"css-loader",
 						"postcss-loader",
 					],
 				},
@@ -40,6 +33,6 @@ module.exports = (env, options) => {
 			filename: "bundle.js",
 			path: path.resolve(__dirname, "dist"),
 		},
-		plugins: [new HTMLWebpackPlugin({ template: "./src/index.html" })],
+		plugins: [new HTMLWebpackPlugin({ template: "./src/index.html" }), new MiniCssExtractPlugin()],
 	};
 };
