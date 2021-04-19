@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import Introduction from "./introduction";
 import useStorage from "./hooks/useStorage";
-import { DateDropDownView, HorizontalView, DashOrNoDash } from "./Questions";
+import { DateDropDownView, HorizontalView, DashOrNoDash, MultiBoxes } from "./Questions";
 import Button from "./ui/Button";
 import SplitLayout from "./ui/SplitLayout";
 import DefaultView from "./DefaultView";
@@ -17,6 +17,8 @@ export default function Questionnaire(): JSX.Element {
 				return [<DefaultView key="default" />, <DateDropDownView key="date-dropdown" />];
 			case 3:
 				return [<DefaultView key="default" />, <DashOrNoDash key="dash-or-no-dash" />];
+			case 4:
+				return [<DefaultView key="default" />, <MultiBoxes key="dash-or-no-dash" />];
 			default:
 				return [<div key="foo">foobar</div>, <div key="bar">bar</div>];
 		}

@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./ui/Button";
+import CardInput from "./ui/CardInput";
 import Form from "./ui/Form";
 import TextInput from "./ui/TextInput";
 
@@ -34,7 +35,9 @@ export function DateDropDownView(): JSX.Element {
 				<TextInput label="Card Holder Name" />
 
 				<div>
-					<label className="block text-sm font-medium text-gray-700" htmlFor="experation-date">Experation Date</label>
+					<label className="block text-sm font-medium text-gray-700" htmlFor="experation-date">
+						Experation Date
+					</label>
 					<input
 						type="date"
 						id="experation-date"
@@ -62,6 +65,30 @@ export function DashOrNoDash(): JSX.Element {
 				<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} />
 
 				<TextInput label="CVC" maxLength={3} numbersOnly />
+
+				<Button label="Submit" type="Primary" />
+			</Form>
+		</div>
+	);
+}
+
+export function MultiBoxes(): JSX.Element {
+	return (
+		<div>
+			<Form>
+				<CardInput label="Card Number" maxLength={16} sectionMaxLength={4} />
+
+				<TextInput label="Card Holder Name" />
+
+				<div className="flex flex-row space-x-2 w-full">
+					<div className="flex-1">
+						<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} />
+					</div>
+
+					<div className="flex-1">
+						<TextInput label="CVC" maxLength={3} numbersOnly />
+					</div>
+				</div>
 
 				<Button label="Submit" type="Primary" />
 			</Form>
