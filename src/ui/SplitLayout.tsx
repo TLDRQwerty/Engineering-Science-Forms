@@ -1,17 +1,21 @@
-import React from "react";
-import DefaultLayout from "../DefaultView";
+import React, { ReactNode } from "react";
 
 type Props = {
-	children: React.ReactNode;
+	left: ReactNode;
+	right: ReactNode;
 };
 
-export default function SplitLayout({ children }: Props): JSX.Element {
+export default function SplitLayout({ left, right }: Props): JSX.Element {
 	return (
 		<div className="flex flex-row space-x-4">
-			<div className="rounded border border-black bg-white px-14 py-10">
-				<DefaultLayout />
+			<div className="flex-col">
+				<h1 className="text-center text-3xl font-bold text-gray-900">A</h1>
+				<div className="rounded border border-black bg-white px-14 py-10">{left}</div>
 			</div>
-			<div className="rounded border border-black bg-white px-14 py-10">{children}</div>
+			<div className="flex-col">
+				<h1 className="text-center text-3xl font-bold text-gray-900">B</h1>
+				<div className="rounded border border-black bg-white px-14 py-10">{right}</div>
+			</div>
 		</div>
 	);
 }

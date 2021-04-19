@@ -1,44 +1,70 @@
 import React from "react";
+import Button from "./ui/Button";
+import Form from "./ui/Form";
 import TextInput from "./ui/TextInput";
 
-export function One(): JSX.Element {
+export function HorizontalView(): JSX.Element {
 	return (
 		<div>
-			<form className="flex flex-col">
-				<TextInput splitChar="-" splitIndex={4} maxLength={19} label="Card Number" numbersOnly />
+			<Form>
+				<div className="flex flex-row space-x-2">
+					<TextInput splitChar="-" splitIndex={4} maxLength={19} label="Card Number" numbersOnly />
 
-				<label>
-					Cardholder Name
-					<input type="text" id="cardholder-name" name="cardholder-name" />
-				</label>
+					<TextInput label="Card Holder Name" />
+				</div>
 
-				<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} />
+				<div className="flex flex-row space-x-2">
+					<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} />
 
-				<TextInput label="CVC" maxLength={3} numbersOnly />
+					<TextInput label="CVC" maxLength={3} numbersOnly />
+				</div>
 
-				<button>Submit</button>
-			</form>
+				<Button label="Submit" type="Primary" />
+			</Form>
 		</div>
 	);
 }
 
-export function Two(): JSX.Element {
+export function DateDropDownView(): JSX.Element {
 	return (
 		<div>
-			<form>
+			<Form>
 				<TextInput splitChar="-" splitIndex={4} maxLength={19} label="Card Number" numbersOnly />
 
-				<label>
-					Cardholder Name
-					<input type="text" id="cardholder-name" name="cardholder-name" />
-				</label>
+				<TextInput label="Card Holder Name" />
+
+				<div>
+					<label htmlFor="experation-date">Experation Date</label>
+					<input
+						type="date"
+						id="experation-date"
+						name="experation-date"
+						className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+					/>
+				</div>
+
+				<TextInput label="CVC" maxLength={3} numbersOnly />
+
+				<Button label="Submit" type="Primary" />
+			</Form>
+		</div>
+	);
+}
+
+export function DashOrNoDash(): JSX.Element {
+	return (
+		<div>
+			<Form>
+				<TextInput splitChar=" " splitIndex={4} maxLength={19} label="Card Number" numbersOnly />
+
+				<TextInput label="Card Holder Name" />
 
 				<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} />
 
 				<TextInput label="CVC" maxLength={3} numbersOnly />
 
-				<button>Submit</button>
-			</form>
+				<Button label="Submit" type="Primary" />
+			</Form>
 		</div>
 	);
 }
