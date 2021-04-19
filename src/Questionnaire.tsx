@@ -3,6 +3,7 @@ import Introduction from "./introduction";
 import useStorage from "./hooks/useStorage";
 import { One, Two } from "./Questions";
 import Button from "./ui/Button";
+import SplitLayout from "./ui/SplitLayout";
 
 export default function Questionnaire(): JSX.Element {
 	const [current, setCurrent] = useStorage("current-question", "1");
@@ -31,8 +32,10 @@ export default function Questionnaire(): JSX.Element {
 			<div className="rounded border border-black bg-white px-14 py-6">
 				<Introduction />
 			</div>
-			<div className="rounded border border-black bg-white px-14 py-10">{getQuestion()}</div>
-			<div className="rounded border border-black bg-white px-10 py-6">
+			<SplitLayout>
+				<div className="">{getQuestion()}</div>
+			</SplitLayout>
+			<div className="rounded border border-black bg-white px-10 py-6 space-x-5">
 				<Button label="Back" onClick={handleBack} />
 				<span>{current}/TBD</span>
 				<Button label="Next" onClick={handleNext} />
