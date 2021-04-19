@@ -34,7 +34,7 @@ export function DateDropDownView(): JSX.Element {
 				<TextInput label="Card Holder Name" />
 
 				<div>
-					<label htmlFor="experation-date">Experation Date</label>
+					<label className="block text-sm font-medium text-gray-700" htmlFor="experation-date">Experation Date</label>
 					<input
 						type="date"
 						id="experation-date"
