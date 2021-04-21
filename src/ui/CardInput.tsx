@@ -1,4 +1,3 @@
-// WIP: still doesn't handle errors properly
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 
 type Props = {
@@ -28,9 +27,13 @@ export default function CardInput({ label, sectionMaxLength, maxLength }: Props)
 	}
 
 	useEffect(() => {
-		for (let i = 0; i < totalInputBoxes; i++) {
-			setValues({ ...values, [i]: "" });
-		}
+		setValues(() => {
+			let v = {};
+			for (let i = 0; i < totalInputBoxes; i++) {
+				v = { ...v, [i]: "" };
+			}
+			return v
+		})
 	}, []);
 
 	function handleChange(e: FormEvent<HTMLInputElement>, v: number) {
