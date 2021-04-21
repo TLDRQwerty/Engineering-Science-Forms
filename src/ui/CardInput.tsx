@@ -48,19 +48,10 @@ export default function CardInput({ label, sectionMaxLength, maxLength }: Props)
 		setErrors([]);
 
 		if (e.currentTarget.value.length > sectionMaxLength) {
-			// can be done with 1 liner but 5 am so ahhhhhhhhhhh
-			if (v + 1 >= maxLength / sectionMaxLength) {
-				const i = refs[0];
-				if (i && i.current !== null) {
-					i.current.focus();
-					return;
-				}
-			} else {
-				const i = refs[v + 1];
-				if (i && i.current !== null) {
-					i.current.focus();
-					return;
-				}
+			const i = refs[Math.floor(( v + 1 ) % ( maxLength / sectionMaxLength ))]
+			if (i && i.current !== null) {
+				i.current.focus();
+				return;
 			}
 		}
 		setValues({ ...values, [v]: e.currentTarget.value });
