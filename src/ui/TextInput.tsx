@@ -6,9 +6,19 @@ type Props = {
 	maxLength?: number;
 	label: string;
 	numbersOnly?: boolean;
+	placeHolder?: string;
+	allowForErroredInput?: boolean;
 };
 
-export default function TextInput({ splitChar, splitIndex, maxLength, label, numbersOnly }: Props): JSX.Element {
+export default function TextInput({
+	splitChar,
+	splitIndex,
+	maxLength,
+	label,
+	numbersOnly,
+	placeHolder,
+	allowForErroredInput,
+}: Props): JSX.Element {
 	const [value, setValue] = useState("");
 	const [errors, setErrors] = useState<string[]>([]);
 
@@ -22,19 +32,19 @@ export default function TextInput({ splitChar, splitIndex, maxLength, label, num
 
 		if (newValue.length < value.length) {
 			setValue(newValue);
-			return;
+			if (!allowForErroredInput) return;
 		}
 
 		if (numbersOnly && !/^[0-9]*$/.test(newChar)) {
 			const errorString = "Must be a number";
 			pushNewError(errorString);
-			return;
+			if (!allowForErroredInput) return;
 		}
 
 		if (maxLength && newValue.length > maxLength) {
 			const errorString = `Can not exceed max length of ${maxLength}`;
 			pushNewError(errorString);
-			return;
+			if (!allowForErroredInput) return;
 		}
 
 		setErrors([]);
@@ -66,6 +76,7 @@ export default function TextInput({ splitChar, splitIndex, maxLength, label, num
 				value={value}
 				name={id}
 				id={id}
+				placeholder={placeHolder}
 			/>
 			{errors.length > 0 && <span className="block text-sm font-medium text-red-700">{errors.join(", ")}</span>}
 		</div>

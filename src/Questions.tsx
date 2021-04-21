@@ -95,3 +95,39 @@ export function MultiBoxes(): JSX.Element {
 		</div>
 	);
 }
+
+export function PlaceHolder(): JSX.Element {
+	return (
+		<div>
+			<Form>
+				<TextInput splitChar=" " splitIndex={4} maxLength={19} label="Card Number" numbersOnly />
+
+				<TextInput label="Card Holder Name" placeHolder="Enter card holder name" />
+
+				<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} placeHolder="MM / YY"/>
+
+				<TextInput label="CVC" maxLength={3} numbersOnly  placeHolder="3 to 4 digits"/>
+
+				<Button label="Submit" type="Primary" />
+			</Form>
+		</div>
+	)
+}
+
+export function ErroredInput(): JSX.Element {
+	return (
+		<div>
+			<Form>
+				<TextInput splitChar=" " splitIndex={4} maxLength={19} label="Card Number" numbersOnly allowForErroredInput />
+
+				<TextInput label="Card Holder Name" allowForErroredInput/>
+
+				<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} placeHolder="MM / YY" allowForErroredInput/>
+
+				<TextInput label="CVC" maxLength={3} numbersOnly allowForErroredInput/>
+
+				<Button label="Submit" type="Primary" />
+			</Form>
+		</div>
+	)
+}
