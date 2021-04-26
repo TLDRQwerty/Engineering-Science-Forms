@@ -3,28 +3,27 @@ import Introduction from "./introduction";
 import useStorage from "./hooks/useStorage";
 import { DateDropDownView, HorizontalView, DashOrNoDash, MultiBoxes, PlaceHolder, ErroredInput } from "./Questions";
 import Button from "./ui/Button";
-import SplitLayout from "./ui/SplitLayout";
 import DefaultView from "./DefaultView";
 
 export default function Questionnaire(): JSX.Element {
 	const [current, setCurrent] = useStorage("current-question", "1");
 
-	const getQuestion = (): [ReactNode, ReactNode] => {
+	const getQuestion = (): ReactNode => {
 		switch (current && parseInt(current)) {
 			case 1:
-				return [<DefaultView key="default" />, <HorizontalView key="horizontal" />];
+				return <HorizontalView key="horizontal" />;
 			case 2:
-				return [<DefaultView key="default" />, <DateDropDownView key="date-dropdown" />];
+				return <DateDropDownView key="date-dropdown" />;
 			case 3:
-				return [<DefaultView key="default" />, <DashOrNoDash key="dash-or-no-dash" />];
+				return <DashOrNoDash key="dash-or-no-dash" />;
 			case 4:
-				return [<DefaultView key="default" />, <MultiBoxes key="multibox" />];
+				return <MultiBoxes key="multibox" />
 			case 5:
-				return [<DefaultView key="default" />, <PlaceHolder key="placeholder" />];
+				return <PlaceHolder key="placeholder" />;
 			case 6:
-				return [<DefaultView key="default" />, <ErroredInput key="errored-input" />];
+				return <ErroredInput key="errored-input" />;
 			default:
-				return [<div key="foo">foobar</div>, <div key="bar">bar</div>];
+				return <div key="bar">bar</div>;
 		}
 	};
 
@@ -36,7 +35,7 @@ export default function Questionnaire(): JSX.Element {
 		setCurrent((parseInt(current) - 1).toString());
 	};
 
-	const questions = getQuestion();
+	const question = getQuestion();
 
 	const totalQuestions = 6;
 	const atLastQuestion = parseInt(current) >= totalQuestions;
@@ -47,7 +46,12 @@ export default function Questionnaire(): JSX.Element {
 			<div className="rounded border border-black bg-white px-14 py-6">
 				<Introduction />
 			</div>
-			<SplitLayout left={questions[0]} right={questions[1]} />
+		<div className="flex flex-row space-x-4">
+			<div className="flex-col">
+				<h1 className="text-center text-3xl font-bold text-gray-900">{current}</h1>
+				<div className="rounded border border-black bg-white px-14 py-10">{question}</div>
+			</div>
+			</div>
 			<div className="rounded border border-black bg-white px-10 py-6 space-x-5">
 				<Button type="Secondary" label="Back" onClick={handleBack} disabled={atFirstQuestion}/>
 				<span>{current}/{totalQuestions}</span>
