@@ -1198,6 +1198,9 @@ select {
 .font-medium {
 	font-weight: 500;
 }
+.uppercase {
+	text-transform: uppercase;
+}
 .text-gray-900 {
 	--tw-text-opacity: 1;
 	color: rgba(17, 24, 39, var(--tw-text-opacity));
@@ -1205,6 +1208,10 @@ select {
 .text-gray-700 {
 	--tw-text-opacity: 1;
 	color: rgba(55, 65, 81, var(--tw-text-opacity));
+}
+.text-red-400 {
+	--tw-text-opacity: 1;
+	color: rgba(248, 113, 113, var(--tw-text-opacity));
 }
 .text-white {
 	--tw-text-opacity: 1;
