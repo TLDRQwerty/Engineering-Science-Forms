@@ -22,6 +22,9 @@ export default function Introduction(): JSX.Element {
 					<span>CVC</span><span>0321</span>
 				</div>
 			</section>
+			<div className="text-red-400 font-bold uppercase">
+				Do not use your real card information!
+			</div>
 		</div>
 	);
 }

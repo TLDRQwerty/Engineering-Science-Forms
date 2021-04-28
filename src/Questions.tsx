@@ -15,7 +15,7 @@ export function HorizontalView(): JSX.Element {
 				</div>
 
 				<div className="flex flex-row space-x-2">
-					<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} />
+					<TextInput label="Expiration Date" maxLength={5} numbersOnly splitChar="/" splitIndex={2} />
 
 					<TextInput label="CVC" maxLength={3} numbersOnly />
 				</div>
@@ -62,7 +62,7 @@ export function DashOrNoDash(): JSX.Element {
 
 				<TextInput label="Card Holder Name" />
 
-				<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} />
+				<TextInput label="Expiration Date" maxLength={5} numbersOnly splitChar="/" splitIndex={2} />
 
 				<TextInput label="CVC" maxLength={3} numbersOnly />
 
@@ -82,7 +82,7 @@ export function MultiBoxes(): JSX.Element {
 
 				<div className="flex flex-row space-x-2 w-full">
 					<div className="flex-1">
-						<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} />
+						<TextInput label="Expiration Date" maxLength={5} numbersOnly splitChar="/" splitIndex={2} />
 					</div>
 
 					<div className="flex-1">
@@ -104,7 +104,7 @@ export function PlaceHolder(): JSX.Element {
 
 				<TextInput label="Card Holder Name" placeHolder="Enter card holder name" />
 
-				<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} placeHolder="MM / YY"/>
+				<TextInput label="Expiration Date" maxLength={5} numbersOnly splitChar="/" splitIndex={2} placeHolder="MM / YY"/>
 
 				<TextInput label="CVC" maxLength={3} numbersOnly  placeHolder="3 to 4 digits"/>
 
@@ -122,7 +122,7 @@ export function ErroredInput(): JSX.Element {
 
 				<TextInput label="Card Holder Name" allowForErroredInput/>
 
-				<TextInput label="Expiration Date" maxLength={4} numbersOnly splitChar="/" splitIndex={2} placeHolder="MM / YY" allowForErroredInput/>
+				<TextInput label="Expiration Date" maxLength={5} numbersOnly splitChar="/" splitIndex={2} placeHolder="MM / YY" allowForErroredInput/>
 
 				<TextInput label="CVC" maxLength={3} numbersOnly allowForErroredInput/>
 

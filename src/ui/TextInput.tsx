@@ -42,7 +42,7 @@ export default function TextInput({
 		}
 
 		if (maxLength && newValue.length > maxLength) {
-			const errorString = `Can not exceed max length of ${maxLength}`;
+			const errorString = `Can not exceed max length of ${maxLength - (maxLength % (splitIndex || 1))}`;
 			pushNewError(errorString);
 			if (!allowForErroredInput) return;
 		}
