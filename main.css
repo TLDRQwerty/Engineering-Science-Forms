@@ -1077,6 +1077,11 @@ select {
 .justify-items-center {
 	justify-items: center;
 }
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-x-reverse: 0;
+	margin-right: calc(1rem * var(--tw-space-x-reverse));
+	margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-x-5 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-x-reverse: 0;
 	margin-right: calc(1.25rem * var(--tw-space-x-reverse));
@@ -1096,11 +1101,6 @@ select {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-}
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-x-reverse: 0;
-	margin-right: calc(1rem * var(--tw-space-x-reverse));
-	margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .rounded {
 	border-radius: 0.25rem;
@@ -1145,6 +1145,10 @@ select {
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
 }
+.py-10 {
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+}
 .px-10 {
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
@@ -1157,12 +1161,12 @@ select {
 	padding-left: 1rem;
 	padding-right: 1rem;
 }
-.py-10 {
-	padding-top: 2.5rem;
-	padding-bottom: 2.5rem;
-}
 .text-center {
 	text-align: center;
+}
+.text-3xl {
+	font-size: 1.875rem;
+	line-height: 2.25rem;
 }
 .text-sm {
 	font-size: 0.875rem;
@@ -1172,15 +1176,15 @@ select {
 	font-size: 1rem;
 	line-height: 1.5rem;
 }
-.text-3xl {
-	font-size: 1.875rem;
-	line-height: 2.25rem;
+.font-bold {
+	font-weight: 700;
 }
 .font-medium {
 	font-weight: 500;
 }
-.font-bold {
-	font-weight: 700;
+.text-gray-900 {
+	--tw-text-opacity: 1;
+	color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
 .text-gray-700 {
 	--tw-text-opacity: 1;
@@ -1194,9 +1198,9 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(185, 28, 28, var(--tw-text-opacity));
 }
-.text-gray-900 {
+.text-gray-500 {
 	--tw-text-opacity: 1;
-	color: rgba(17, 24, 39, var(--tw-text-opacity));
+	color: rgba(107, 114, 128, var(--tw-text-opacity));
 }
 .shadow-sm {
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -1221,6 +1225,10 @@ select {
 .hover\:bg-gray-50:hover {
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
+}
+.hover\:text-gray-900:hover {
+	--tw-text-opacity: 1;
+	color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
 .focus\:border-indigo-500:focus {
 	--tw-border-opacity: 1;
