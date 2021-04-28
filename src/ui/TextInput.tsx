@@ -50,13 +50,7 @@ export default function TextInput({
 		setErrors([]);
 
 		if (splitChar && splitIndex) {
-			const s = newValue.split(splitChar);
-			const lastElements = s[s.length - 1];
-			if (lastElements.length % splitIndex === 0 && lastElements.length !== 0 && newValue.length !== maxLength) {
-				setValue(newValue + splitChar);
-			} else {
-				setValue(newValue);
-			}
+			setValue((newValue.replace(new RegExp(`${splitChar}`, 'g'), '').match(new RegExp(`.{1,${splitIndex}}`, 'g')) || []).join(splitChar));
 		} else {
 			setValue(e.currentTarget.value);
 		}
