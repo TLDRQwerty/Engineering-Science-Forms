@@ -19,7 +19,7 @@ export default function Introduction(): JSX.Element {
 					<span>Expiration Date</span><span>06/2020</span>
 				</div>
 				<div className="flex justify-between">
-					<span>CVC</span><span>0321</span>
+					<span>CVC</span><span>321</span>
 				</div>
 			</section>
 			<div className="text-red-400 font-bold uppercase">
