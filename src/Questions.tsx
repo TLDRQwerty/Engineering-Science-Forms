@@ -39,7 +39,7 @@ export function DateDropDownView(): JSX.Element {
 						Experation Date
 					</label>
 					<input
-						type="date"
+						type="month"
 						id="experation-date"
 						name="experation-date"
 						className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -118,7 +118,7 @@ export function ErroredInput(): JSX.Element {
 	return (
 		<div>
 			<Form>
-				<TextInput splitChar=" " splitIndex={4} maxLength={19} label="Card Number" numbersOnly allowForErroredInput />
+				<TextInput splitChar="-" splitIndex={4} maxLength={19} label="Card Number" numbersOnly allowForErroredInput />
 
 				<TextInput label="Card Holder Name" allowForErroredInput/>
 
